@@ -331,11 +331,12 @@ const generateTagsAsReactComponent = (type, tags) => {
 };
 
 const mapAttributesForServer = (tags) => {
-  const mappedTags = objectAssign({}, tags);
-  if (mappedTags['class']) {
-    mappedTags.className = mappedTags['class'];
-  }
-  return mappedTags;
+    const mappedTags = objectAssign({}, tags);
+    if (mappedTags["class"]) {
+        mappedTags.className = mappedTags["class"];
+        delete mappedTags["class"];
+    }
+    return mappedTags;
 };
 
 const getMethodsForTag = (type, tags) => {
