@@ -25,3 +25,7 @@ export const REACT_TAG_MAP = {
     "charset": "charSet",
     "http-equiv": "httpEquiv"
 };
+
+export const HTML_TAG_MAP = {
+    "className": "class"
+};
