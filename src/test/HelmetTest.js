@@ -1413,7 +1413,7 @@ describe("Helmet", () => {
     });
 
     describe("server", () => {
-        const stringifiedHtmlAttribute = `lang="ga"`;
+        const stringifiedHtmlAttributes = `lang="ga" class="myClassName"`;
         const stringifiedTitle = `<title ${HELMET_ATTRIBUTE}="true">Dangerous &lt;script&gt; include</title>`;
         const stringifiedBaseTag = `<base ${HELMET_ATTRIBUTE}="true" target="_blank" href="http://localhost/"/>`;
 
@@ -1879,7 +1879,8 @@ describe("Helmet", () => {
             ReactDOM.render(
                 <Helmet
                     htmlAttributes={{
-                        lang: "ga"
+                        lang: "ga",
+                        className: "myClassName"
                     }}
                 />,
                 container
@@ -1896,14 +1897,15 @@ describe("Helmet", () => {
 
             expect(markup)
                 .to.be.a("string")
-                .that.equals(`<html ${stringifiedHtmlAttribute}></html>`);
+                .that.equals(`<html ${stringifiedHtmlAttributes}></html>`);
         });
 
         it("will render html attributes as string", () => {
             ReactDOM.render(
                 <Helmet
                     htmlAttributes={{
-                        lang: "ga"
+                        lang: "ga",
+                        className: "myClassName"
                     }}
                 />,
                 container
@@ -1916,7 +1918,7 @@ describe("Helmet", () => {
 
             expect(head.htmlAttributes.toString())
                 .to.be.a("string")
-                .that.equals(stringifiedHtmlAttribute);
+                .that.equals(stringifiedHtmlAttributes);
         });
 
         it("will not encode all characters with HTML character entity equivalents", () => {
